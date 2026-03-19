@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>受賞記念 — World Tourism | 世界ツーリズム株式ファンド</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1A2744;--navy-deep:#0F1A2E;--navy-mid:#243352;--gold:#C5A572;--gold-light:#D4BA8A;--gold-pale:#E8D5B0;--gold-bright:#DFC08C;--cream:#FAF6F0;--white:#FFFFFF;--text:#1A1A1A;--text-mid:#4A4A4A;--text-light:#7A7A7A;--text-faint:#ABABAB}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:17.5px}body{font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}.r{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.r.v{opacity:1;transform:translateY(0)}.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3rem;transition:all .5s cubic-bezier(.16,1,.3,1)}.nav.scrolled{background:rgba(26,39,68,.96);backdrop-filter:blur(20px);padding:.9rem 3rem;box-shadow:0 4px 30px rgba(0,0,0,.18)}.nav-brand{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,.85);text-transform:uppercase}.nav-links{display:flex;gap:2.2rem;list-style:none}.nav-links a{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}.nav-links a:hover{color:var(--gold-light)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1002;position:relative}.ham span{width:22px;height:1.5px;background:rgba(255,255,255,.8);transition:transform .3s,opacity .3s}.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.ham.open span:nth-child(2){opacity:0}.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,26,46,.97);z-index:1001;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.mobile-menu.open{display:flex}.mobile-menu a{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;letter-spacing:.08em;transition:color .3s}.mobile-menu a:hover{color:var(--gold-light)}
+
+/* COVER */
+.cover{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(15,26,46,.5) 0%,rgba(26,39,68,.65) 40%,rgba(15,26,46,.82) 100%),url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80') center/cover no-repeat;overflow:hidden}.cover-overlay{position:absolute;inset:0;background-image:radial-gradient(ellipse 800px 500px at 30% 40%,rgba(197,165,114,.06) 0%,transparent 70%),radial-gradient(ellipse 600px 400px at 70% 60%,rgba(26,39,68,.3) 0%,transparent 70%)}.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:100px 100px}
+.cover-content{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:880px}.cover-cap{font-family:'Cormorant Garamond',serif;font-size:.75rem;font-weight:600;letter-spacing:.25em;color:var(--gold-light);text-transform:uppercase;margin-bottom:1.8rem;animation:fadeUp .8s .3s both}.cover-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-.01em;animation:fadeUp .8s .5s both}.cover-title span{display:block;font-family:'Noto Serif JP',serif;font-size:clamp(1rem,2vw,1.4rem);font-weight:500;color:var(--gold-pale);margin-top:.6rem;letter-spacing:.08em}.cover-sub{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.6);line-height:1.9;margin-top:2rem;max-width:560px;margin-left:auto;margin-right:auto;animation:fadeUp .8s .7s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.scroll-cue{position:absolute;bottom:2.5rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:fadeUp 1s 1.2s both}.scroll-cue span{font-size:.6rem;color:rgba(255,255,255,.3);letter-spacing:.25em;text-transform:uppercase}.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:linePulse 2s infinite}@keyframes linePulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* DATA BAND */
+.data-band{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(26,39,68,.08)}.db-cell{padding:2.5rem 1.5rem;text-align:center;background:var(--white);border-right:1px solid rgba(26,39,68,.06)}.db-cell:last-child{border-right:none}.db-value{font-family:'Bodoni Moda',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1}.db-label{font-size:.7rem;font-weight:500;color:var(--text-light);margin-top:.5rem;letter-spacing:.03em}.db-src{font-size:.58rem;color:var(--text-faint);margin-top:.3rem}
+
+/* SECTIONS */
+.sec{padding:5.5rem 2rem}.sec-inner{max-width:860px;margin:0 auto}.sec-wide{max-width:1060px;margin:0 auto}.part-label{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:700;color:var(--gold);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.8rem}.part-label::before{content:'';width:28px;height:1.5px;background:var(--gold)}.sec-h2{font-family:'Noto Serif JP',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--navy);line-height:1.45;margin-bottom:.4rem}.sec-h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;color:var(--gold);display:block;font-size:.85rem;margin-top:.3rem;letter-spacing:.08em}.body-text{font-size:.92rem;line-height:2.05;color:var(--text-mid)}.source-note{font-size:.68rem;color:var(--text-faint);margin-top:1rem;line-height:1.6}
+
+/* PHOTO BREAK */
+.photo-break{position:relative;height:50vh;min-height:340px;background-size:cover;background-position:center;background-attachment:fixed}.photo-break-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,26,46,.1) 0%,rgba(15,26,46,.45) 100%)}
+
+/* STATEMENT */
+.stmt{position:relative;padding:5rem 2rem;background:var(--navy);overflow:hidden}.stmt-glow{position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 25% 50%,rgba(197,165,114,.06) 0%,transparent 70%),radial-gradient(ellipse 500px 350px at 75% 50%,rgba(36,51,82,.5) 0%,transparent 70%)}.stmt-text{position:relative;z-index:2;max-width:720px;margin:0 auto;text-align:center;font-family:'Noto Serif JP',serif;font-size:clamp(1.15rem,2.3vw,1.6rem);font-weight:500;color:var(--white);line-height:2}.stmt-text strong{color:var(--gold-bright);font-weight:600}.stmt-src{text-align:center;font-size:.7rem;color:rgba(255,255,255,.3);margin-top:1.8rem;letter-spacing:.12em;position:relative;z-index:2}
+
+/* MAGAZINE */
+.mag{display:grid;grid-template-columns:1fr 1fr;min-height:480px}.mag.flip{direction:rtl}.mag.flip>*{direction:ltr}.mag-img{background-size:cover;background-position:center;min-height:400px}.mag-body{display:flex;flex-direction:column;justify-content:center;padding:3.5rem}.mag-body.on-cream{background:var(--cream)}.mag-body.on-white{background:var(--white)}.mag-num{font-family:'Bodoni Moda',serif;font-size:3.5rem;font-weight:300;color:var(--gold-pale);line-height:1;margin-bottom:.5rem}.mag-h3{font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:600;color:var(--navy);line-height:1.5;margin-bottom:1rem}.mag-p{font-size:.88rem;line-height:2;color:var(--text-mid)}.mag-src{font-size:.65rem;color:var(--text-faint);margin-top:.8rem;line-height:1.5}
+
+/* VALUE CHAIN */
+.vc-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:2.5rem;border-radius:12px;overflow:hidden;border:1px solid rgba(26,39,68,.08)}.vc-step{padding:2rem 1.5rem;text-align:center;background:var(--white);border-right:1px solid rgba(26,39,68,.06);position:relative}.vc-step:last-child{border-right:none}.vc-step::after{content:'→';position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:.9rem;color:var(--gold);z-index:2}.vc-step:last-child::after{display:none}.vc-emoji{font-size:2rem;margin-bottom:.8rem}.vc-label{font-family:'Noto Serif JP',serif;font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:.3rem}.vc-sub{font-size:.72rem;color:var(--text-light);line-height:1.6}
+
+/* ALLOCATION */
+.alloc-row{display:grid;grid-template-columns:160px 1fr 55px;align-items:center;gap:1rem;margin-bottom:.8rem}.alloc-lbl{font-size:.8rem;font-weight:500;color:var(--text-mid)}.alloc-track{height:26px;background:rgba(26,39,68,.04);border-radius:5px;overflow:hidden}.alloc-fill{height:100%;border-radius:5px;transition:width 1.4s cubic-bezier(.16,1,.3,1);width:0}.alloc-pct{font-family:'Bodoni Moda',serif;font-size:.9rem;font-weight:700;color:var(--navy);text-align:right}.af-1{background:linear-gradient(135deg,var(--navy),var(--navy-mid))}.af-2{background:linear-gradient(135deg,var(--gold),var(--gold-light))}.af-3{background:linear-gradient(135deg,#B36B4F,#D08E72)}.af-4{background:linear-gradient(135deg,#5B7B6A,#8AAE98)}.af-5{background:linear-gradient(135deg,#6A6FA0,#9498C4)}.af-7{background:linear-gradient(135deg,#999,#bbb)}
+
+/* GAESCO */
+.gaesco-panel{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:center;margin-top:2.5rem}.gaesco-visual{position:relative;background:linear-gradient(135deg,var(--navy-deep),var(--navy));border-radius:16px;padding:3.5rem 2rem;text-align:center;overflow:hidden}.gaesco-visual::after{content:'';position:absolute;top:-40%;right:-40%;width:80%;height:80%;border-radius:50%;background:radial-gradient(circle,rgba(197,165,114,.08) 0%,transparent 70%)}.gv-label{font-family:'Cormorant Garamond',serif;font-size:.75rem;font-weight:600;letter-spacing:.2em;color:var(--gold-light);position:relative;z-index:2;margin-bottom:1.2rem}.gv-big{font-family:'Bodoni Moda',serif;font-size:5rem;font-weight:700;line-height:1;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:2}.gv-sub{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;font-style:italic;color:rgba(255,255,255,.6);position:relative;z-index:2;margin-top:.3rem}.gv-desc{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.7;margin-top:1.5rem;position:relative;z-index:2}.gaesco-text h3{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:1rem}.gaesco-text p{font-size:.88rem;line-height:2;color:var(--text-mid);margin-bottom:1rem}.gaesco-badge{display:inline-block;padding:.6rem 1.2rem;background:rgba(197,165,114,.08);border:1px solid rgba(197,165,114,.2);border-radius:8px;font-size:.76rem;color:var(--navy);line-height:1.6}.gaesco-badge-note{display:block;font-size:.62rem;color:var(--text-faint);margin-top:.3rem;line-height:1.5}
+
+/* RISKS */
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}.risk-card{padding:2rem;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);transition:border-color .3s}.risk-card:hover{border-color:rgba(197,165,114,.3)}.risk-tag{font-size:.65rem;font-weight:700;color:var(--gold-light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}.risk-title{font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.6rem}.risk-desc{font-size:.82rem;line-height:1.85;color:rgba(255,255,255,.55)}
+
+/* WATCH */
+.watch-items{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem}.watch-item{flex:1 1 200px;padding:1.2rem 1.5rem;background:var(--white);border-radius:10px;border-left:3px solid var(--gold-pale)}.watch-item-title{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:.3rem}.watch-item-desc{font-size:.75rem;color:var(--text-light);line-height:1.6}
+
+/* NISA */
+.nisa-cta{text-align:center;padding:4rem 2rem;background:var(--white)}.nisa-pill{display:inline-flex;align-items:center;gap:.8rem;padding:.8rem 2rem;border:2px solid var(--gold);border-radius:100px;background:linear-gradient(135deg,rgba(197,165,114,.06),rgba(197,165,114,.02));margin-bottom:1.5rem}.nisa-pill-main{font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:700;color:var(--navy)}.nisa-desc{font-size:.88rem;line-height:2;color:var(--text-mid);max-width:640px;margin:0 auto}
+
+/* TABLE */
+.info-tbl{width:100%;border-collapse:collapse;margin-top:2rem;font-size:.88rem}.info-tbl tr{border-bottom:1px solid rgba(26,39,68,.06)}.info-tbl th{padding:1rem 1.5rem;text-align:left;font-weight:600;color:var(--navy);background:rgba(26,39,68,.025);width:200px;vertical-align:top}.info-tbl td{padding:1rem 1.5rem;color:var(--text-mid);line-height:1.7}
+
+/* OUTRO */
+.outro{position:relative;padding:5rem 2rem;background:linear-gradient(180deg,rgba(15,26,46,.65) 0%,rgba(26,39,68,.8) 100%),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80') center/cover no-repeat;background-attachment:fixed}.outro-inner{position:relative;z-index:2;max-width:700px;margin:0 auto;text-align:center}.outro-text{font-family:'Noto Serif JP',serif;font-size:clamp(1rem,2vw,1.3rem);font-weight:500;color:var(--white);line-height:2.2}.outro-text strong{color:var(--gold-bright);font-weight:600}.outro-sig{font-family:'Cormorant Garamond',serif;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.15em;text-transform:uppercase;margin-top:2.5rem}
+
+/* FOOTER */
+.footer{background:var(--navy-deep);padding:3rem 2rem}.footer-inner{max-width:860px;margin:0 auto}.footer-brand{font-family:'Cormorant Garamond',serif;font-size:.82rem;font-weight:600;color:rgba(255,255,255,.5);letter-spacing:.1em;margin-bottom:1.5rem}.footer-disc{font-size:.7rem;line-height:2;color:rgba(255,255,255,.28);border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem}.footer-copy{font-size:.65rem;color:rgba(255,255,255,.18);margin-top:1.5rem;text-align:center}
+
+/* RESPONSIVE */
+/* ═══════ RESPONSIVE LINE BREAK ═══════ */
+.pc{display:inline}
+
+@media(max-width:768px){
+  /* Hide PC-only line breaks */
+  .pc{display:none}
+
+  /* Layout */
+  .nav-links{display:none}
+  .ham{display:flex}
+  .nav{padding:1rem 1.5rem;top:26px}
+  .nav.scrolled{padding:.7rem 1.5rem;top:26px}
+  .award-ribbon{font-size:.55rem;padding:.4rem .8rem}
+
+  /* Typography - readable sizes */
+  html{font-size:16px}
+  .body-text{font-size:1rem;line-height:1.95;max-width:none}
+  .mag-p{font-size:.95rem;line-height:1.95;max-width:none}
+
+  /* Headings - balanced wrapping */
+  .cover-title{text-wrap:balance;letter-spacing:-.02em}
+  .sec-h2{text-wrap:balance;line-height:1.5}
+  .mag-h3{text-wrap:balance;line-height:1.55;font-size:1.05rem}
+  .stmt-text{text-wrap:balance;font-size:1.05rem;line-height:1.9}
+  .outro-text{text-wrap:balance;font-size:1rem;line-height:2}
+  .ap-title{text-wrap:balance}
+  .ap-detail{text-wrap:balance;font-size:.85rem;line-height:1.8}
+
+  /* Cover adjustments */
+  .cover-sub{font-size:.9rem;line-height:1.85;max-width:none}
+  .cover-cap{font-size:.62rem;letter-spacing:.18em}
+
+  /* Section spacing */
+  .sec{padding:3.5rem 1.5rem}
+  .mag{grid-template-columns:1fr}
+  .mag-img{min-height:220px}
+  .mag-body{padding:2rem 1.5rem}
+  .mag.flip{direction:ltr}
+
+  /* Data band */
+  .data-band{grid-template-columns:repeat(2,1fr)}
+  .db-cell{padding:1.6rem 1rem}
+  .db-value{font-size:1.6rem}
+  .db-label{font-size:.65rem}
+
+  /* Cards */
+  .card-grid,.risk-grid{grid-template-columns:1fr}
+
+  /* Value chain */
+  .vc-flow{grid-template-columns:repeat(2,1fr)}
+  .vc-step::after{display:none}
+
+  /* GVC panel */
+  .gaesco-panel{grid-template-columns:1fr}
+
+  /* Photo breaks */
+  .photo-break{background-attachment:scroll;height:30vh;min-height:200px}
+  .outro{background-attachment:scroll}
+
+  /* Table */
+  .info-tbl th{width:100px;font-size:.8rem;padding:.8rem}
+  .info-tbl td{font-size:.82rem;padding:.8rem}
+
+  /* Allocation */
+  .alloc-row{grid-template-columns:110px 1fr 40px;gap:.6rem}
+  .alloc-lbl{font-size:.72rem}
+
+  /* Award plate */
+  .award-plate{padding:2.5rem 1.5rem}
+
+  /* Summary line */
+  .mag-summary{font-size:.75rem}
+
+  /* Source notes */
+  .source-note{font-size:.62rem}
+  .mag-src{font-size:.6rem}
+}
+/* ═══════ AWARD EDITION OVERRIDES ═══════ */
+
+/* Award ribbon */
+.award-ribbon{position:fixed;top:0;left:0;right:0;z-index:1100;background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:.45rem 1rem;text-align:center;font-size:.65rem;font-weight:700;color:var(--navy-deep);letter-spacing:.12em;text-transform:uppercase;box-shadow:0 2px 12px rgba(197,165,114,.3)}
+.award-ribbon span{font-weight:400;opacity:.7;margin-left:.5rem}
+.nav{top:30px}
+.nav.scrolled{top:30px}
+
+/* Award plate */
+.award-plate{background:var(--navy);padding:3.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.award-plate::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 300px at 50% 50%,rgba(197,165,114,.08) 0%,transparent 70%)}
+.ap-inner{position:relative;z-index:2;max-width:720px;margin:0 auto}
+.ap-eyebrow{font-family:'Cormorant Garamond',serif;font-size:.7rem;font-weight:600;letter-spacing:.25em;color:var(--gold-light);text-transform:uppercase;margin-bottom:1rem}
+.ap-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:var(--white);line-height:1.4;margin-bottom:.6rem}
+.ap-detail{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:.5rem}
+.ap-detail strong{color:var(--gold-bright);font-weight:600}
+.ap-note{font-size:.65rem;color:rgba(255,255,255,.3);margin-top:1rem;line-height:1.5}
+
+/* Gold summary line */
+.mag-summary{font-family:'Cormorant Garamond',serif;font-size:.78rem;font-weight:600;color:var(--gold);letter-spacing:.06em;margin-bottom:1rem;font-style:italic}
+
+/* Readability: higher contrast text */
+.body-text{font-size:1rem;color:#3a3a3a}
+.mag-p{font-size:.95rem;color:#3a3a3a}
+.cover-sub{color:rgba(255,255,255,.7)}
+
+/* Narrower body text for readability */
+.body-text,.mag-p{max-width:680px}
+.sec-inner .body-text{max-width:720px}
+
+</style>
+</head>
+<body>
+
+<!-- AWARD RIBBON -->
+<div class="award-ribbon">
+  LSEG リッパー・ファンド・アワード・ジャパン 2026 最優秀ファンド賞 受賞記念<span>特設ページ</span>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-brand">Capital Asset Management</div>
+  <ul class="nav-links">
+    <li><a href="#p1">Why Tourism</a></li>
+    <li><a href="#p2">Portfolio</a></li>
+    <li><a href="#p3">Risks</a></li>
+    <li><a href="#fund">Fund Info</a></li>
+  </ul>
+  <div class="ham" id="hamBtn"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#p1" class="mm-link">Why Tourism</a>
+  <a href="#p2" class="mm-link">Portfolio</a>
+  <a href="#p3" class="mm-link">Risks</a>
+  <a href="#fund" class="mm-link">Fund Info</a>
+</div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-overlay"></div>
+  <div class="cover-grid"></div>
+  <div class="cover-content">
+    <p class="cover-cap">Capital Asset Management — World Tourism Equity Fund</p>
+    <h1 class="cover-title">World<br class="pc"> Tourism<span>世界の旅、その次へ</span></h1>
+    <p class="cover-sub">移動の再開では終わらない。<br class="pc">体験消費の拡大が、次の観光需要をつくる。</p>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- DATA BAND -->
+<div class="data-band">
+  <div class="db-cell r"><div class="db-value">15.2億人</div><div class="db-label">国際観光客到着数（2025年）</div><div class="db-src">UN Tourism</div></div>
+  <div class="db-cell r rd1"><div class="db-value">$11.7T</div><div class="db-label">旅行・観光産業のGDP貢献（2025年推計）</div><div class="db-src">WTTC</div></div>
+  <div class="db-cell r rd2"><div class="db-value">5.8%</div><div class="db-label">ツーリズム成長率 vs GDP成長率2.7%</div><div class="db-src">WTTC 2022–2032年見通し</div></div>
+  <div class="db-cell r rd3"><div class="db-value">3.71億人</div><div class="db-label">旅行・観光産業の雇用（世界の10.9%）</div><div class="db-src">WTTC 2025年推計</div></div>
+</div>
+
+<!-- AWARD PLATE -->
+<section class="award-plate">
+  <div class="ap-inner r">
+    <div class="ap-eyebrow">LSEG Lipper Fund Awards Japan 2026</div>
+    <h2 class="ap-title">『最優秀ファンド賞』を受賞</h2>
+    <p class="ap-detail"><strong>株式型 業種別 一般消費財（評価期間3年）</strong>— 2年連続受賞</p>
+    <p class="ap-detail"><strong>株式型 業種別 一般消費財（評価期間5年）</strong></p>
+    <p class="ap-detail" style="margin-top:1.2rem;">コロナ禍を乗り越え、観光業は新たな成長ステージに入りました。<br class="pc">旅行産業は成長産業であるという信念が、運用成果という形で証明されました。</p>
+    <p class="ap-note">LSEG リッパー・ファンド・アワードは毎年、多くのファンドのリスク調整後リターンを比較し、評価期間中のパフォーマンスが一貫して優れているファンド運用会社を表彰いたします。受賞は過去の運用実績に基づく評価であり、将来の運用成果を保証または示唆するものではありません。</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="sec" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="part-label r">はじめに</div>
+    <h2 class="sec-h2 r">旅行産業は、世界GDPの<br class="pc">10分の1を占める巨大経済圏である<em>Tourism accounts for 10% of global GDP</em></h2>
+    <p class="body-text r" style="margin-top:1.5rem;">2025年、国際観光客到着数は15.2億人に達し、パンデミック前を超えて史上最高を記録しました。旅行・観光産業の世界GDPへの貢献は推計11.7兆ドル（貢献割合10.3%）、雇用は3.71億人（世界の約10.9%）に上ります。WTTCの見通しでは、グローバル・ツーリズム成長率は年5.8%と、世界GDP成長率の2.7%を大きく上回るペースでの成長が期待されています。</p>
+    <p class="body-text r" style="margin-top:1rem;">2035年には、旅行・観光産業のGDP貢献は16.5兆ドル（11.5%）、雇用は4.62億人（+約9,060万人の新規雇用創出）に拡大する見通しです。この数字は、旅行・観光が一時的な「回復テーマ」ではなく、可処分所得の増加、体験消費の拡大、高齢化、新興国の中間層拡大という複数の構造的ドライバーに支えられた<strong>長期成長テーマ</strong>であることを示唆しています。</p>
+    <p class="source-note r">出所：UN Tourism World Tourism Barometer (January 2026), WTTC Economic Impact Report (2025), IMF。グローバル・ツーリズム成長率は、旅行・観光産業により生産される粗付加価値の成長率（WTTC/Tourism Satellite Account基準）。</p>
+  </div>
+</section>
+
+<div class="photo-break" style="background-image:url('https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=1920&q=80');"><div class="photo-break-overlay"></div></div>
+
+<!-- PART I -->
+<div class="mag" id="p1">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="part-label r">Part I — なぜ旅行は長期成長テーマなのか</div>
+    <div class="mag-num r">01</div>
+    <h3 class="mag-h3 r">旅は贅沢品から<br class="pc">生活インフラへ</h3>
+    <p class="mag-summary r">旅行のハードルは過去20年で構造的に低下した</p>
+    <p class="mag-p r">LCCの普及、デジタル予約プラットフォームの発達、ビザ緩和政策の進展により、国際旅行は一部の富裕層のものから、幅広い所得層がアクセスできる消費行動へと変化しました。UN Tourismは2026年も3〜4％の成長を見込んでいます。</p>
+    <p class="mag-src r">出所：UN Tourism 2026 Outlook</p>
+  </div>
+</div>
+
+<div class="mag flip">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80');"></div>
+  <div class="mag-body on-white">
+    <div class="mag-num r">02</div>
+    <h3 class="mag-h3 r">モノ消費からコト消費へ — <br class="pc">体験経済の構造的な潮流</h3>
+    <p class="mag-summary r">体験消費が支出の優先順位を変えている</p>
+    <p class="mag-p r">先進国では消費の重心が「所有」から「体験」へ移行しています。ミレニアル世代やZ世代を中心に、旅行体験への支出を優先する層が拡大。SNSの普及は「体験の共有」そのものを消費動機に変え、新たな旅行需要を生み出す循環を形成しています。</p>
+  </div>
+</div>
+
+<div class="mag">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="mag-num r">03</div>
+    <h3 class="mag-h3 r">新興国の中間層拡大が<br class="pc">次の旅行者を生む</h3>
+    <p class="mag-summary r">60億人超の中所得層が旅行の裾野を広げる</p>
+    <p class="mag-p r">国連のデータによれば、中所得国に住む人々は60億人を超える見込みです。Airbnb社の調査では、米・英・中のミレニアル世代の半数以上が「最も重要な支出」に旅行を挙げています。モノよりコトを重視する傾向は世代を超えて広がりつつあります。</p>
+    <p class="mag-src r">出所：国連、Airbnb（2016年調査）、WTTC</p>
+  </div>
+</div>
+
+<div class="mag flip">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?w=1200&q=80');"></div>
+  <div class="mag-body on-white">
+    <div class="mag-num r">04</div>
+    <h3 class="mag-h3 r">高齢化と長寿化が<br class="pc">余暇需要を広げる</h3>
+    <p class="mag-summary r">「人生100年時代」は旅行産業の構造的ドライバー</p>
+    <p class="mag-p r">退職後もアクティブに旅行を楽しむシニア層が日本や欧州を中心に増加しています。健康寿命の延伸と年金資産の蓄積が旅行消費の裾野を広げ、クルーズ産業やラグジュアリー旅行の堅調な成長に表れています。</p>
+  </div>
+</div>
+
+<div class="mag">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="mag-num r">05</div>
+    <h3 class="mag-h3 r">アジアのアウトバウンドが<br class="pc">世界の観光地図を変えつつある</h3>
+    <p class="mag-summary r">34億人の旅行者プールが本格始動</p>
+    <p class="mag-p r">アジア太平洋は2025年以降キャッチアップが加速しています。中国・インド・ASEANを合わせた約34億人の旅行者プールが動き出す影響は大きく、UN Tourismはこの回復が世界の旅行企業の収益を押し上げるドライバーになり得ると指摘しています。</p>
+    <p class="mag-src r">出所：UN Tourism World Tourism Barometer</p>
+  </div>
+</div>
+
+<!-- STATEMENT -->
+<section class="stmt">
+  <div class="stmt-glow"></div>
+  <p class="stmt-text r">旅行は<strong>「回復」</strong>の先にある。<br class="pc">可処分所得、体験消費、高齢化、新興国中間層の拡大——<br class="pc">複数の構造要因に支えられた<br class="pc"><strong>長期成長テーマ</strong>として注目される。</p>
+  <p class="stmt-src r">— 世界ツーリズム株式ファンドの投資哲学</p>
+</section>
+
+<div class="photo-break" style="background-image:url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1920&q=80');"><div class="photo-break-overlay"></div></div>
+
+<!-- PART II -->
+<section class="sec" style="background:var(--cream);" id="p2">
+  <div class="sec-inner">
+    <div class="part-label r">Part II — このファンドは何にどう投資するのか</div>
+    <h2 class="sec-h2 r">旅のバリューチェーン全体を捉える<em>Capturing the Full Tourism Value Chain</em></h2>
+    <p class="body-text r" style="margin-top:1.5rem;">当ファンドは、主として世界各国・地域の取引所に上場している旅行関連企業が発行する株式等に投資し、信託財産の中長期的な成長を目指します。銘柄選定にあたっては、スペインの大手運用会社GVC Gaesco Gestión社のアドバイスを受けます。組入外貨建て資産については、原則として為替ヘッジを行いません。旅行者がチケットを予約してから帰国するまでの「旅のバリューチェーン」を構成する4つの領域にグローバルに分散投資します。</p>
+  </div>
+  <div class="sec-wide">
+    <div class="vc-flow r" style="margin-top:2.5rem;">
+      <div class="vc-step"><div class="vc-emoji">✈️</div><div class="vc-label">移動</div><div class="vc-sub">航空会社・鉄道<br>クルーズ・レンタカー</div></div>
+      <div class="vc-step"><div class="vc-emoji">🏨</div><div class="vc-label">宿泊</div><div class="vc-sub">ホテルチェーン<br>リゾート・民泊</div></div>
+      <div class="vc-step"><div class="vc-emoji">📱</div><div class="vc-label">予約・決済</div><div class="vc-sub">OTA・旅行テック<br>決済・保険</div></div>
+      <div class="vc-step"><div class="vc-emoji">🎭</div><div class="vc-label">現地消費</div><div class="vc-sub">レジャー・飲食<br>免税・ラグジュアリー</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="mag">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80');"></div>
+  <div class="mag-body on-white">
+    <div class="mag-num r">06</div>
+    <h3 class="mag-h3 r">地域別の成長ドライバー</h3>
+    <p class="mag-p r"><strong>欧州</strong> — 世界最大の観光地域。2025年に7.93億人の国際観光客を受入れ。文化観光やガストロノミーが需要を支えています。</p><p class="mag-p" style="margin-top:.8rem;"><strong>北米</strong> — Booking Holdings、Airbnb等の旅行テクノロジー企業の本拠地。プラットフォーム企業がグローバルに収益を拡大しています。</p><p class="mag-p" style="margin-top:.8rem;"><strong>アジア太平洋</strong> — 中間層の拡大とアウトバウンド正常化に伴い、中長期で高い成長が期待される地域です。</p><p class="mag-p" style="margin-top:.8rem;"><strong>中東</strong> — サウジアラビアのVision 2030に代表される観光立国戦略のもと、大型のインフラ投資が進んでいます。</p>
+    <p class="mag-src r">出所：UN Tourism, 各種報道。上記は一般的な業界動向であり、当ファンドの投資先を直接示すものではありません。</p>
+  </div>
+</div>
+
+<div class="mag flip">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="mag-num r">07</div>
+    <h3 class="mag-h3 r">なぜアクティブ運用で取るのか — <br class="pc">同じ「旅行関連」でも質が異なる</h3>
+    <p class="mag-p r">旅行関連株はグローバルに多数上場していますが、事業モデルの質と収益構造は銘柄ごとに大きく異なります。レガシーな航空会社と、ネットワーク効果で利益率が拡大するOTAプラットフォームでは、長期の投資価値が根本的に違います。当ファンドは、GVC Gaesco社の30年超にわたる旅行セクター投資の知見を活かし、構造的な優位性を持つと判断される企業を厳選するアクティブ運用を行います。</p>
+  </div>
+</div>
+
+<!-- GVC GAESCO -->
+<section class="sec" style="background:var(--white);">
+  <div class="sec-inner">
+    <div class="part-label r">投資助言</div>
+    <h2 class="sec-h2 r">バルセロナから世界の「300の場所」へ<em>GVC Gaesco — 300 Places Worldwide</em></h2>
+    <div class="gaesco-panel">
+      <div class="gaesco-visual r">
+        <div class="gv-label">GVC GAESCO GESTIÓN</div>
+        <div class="gv-big">300</div>
+        <div class="gv-sub">Places Worldwide</div>
+        <p class="gv-desc">旅行者の約85%は世界の300カ所に集中。<br>その場所でサービスを提供する企業を厳選。<br>運用部門設立1989年、バルセロナ拠点。</p>
+      </div>
+      <div class="gaesco-text r">
+        <h3>観光大国スペインの知見を活かした銘柄選定</h3>
+        <p>スペインは世界第2位の観光大国です。GVC Gaesco Gestión SGIIC, S.A.は、バルセロナに本拠を置く独立系大手金融グループGVC Gaesco傘下の資産運用会社であり、運用部門は1989年に設立されました。投資信託、年金などファンド運用ではパイオニア的存在です。運用資産残高は約20億ユーロ、社員数38名のうちファンドマネージャーおよびアナリストが18名を占めます（2025年7月末現在）。CEO兼CIOのJaume Puig氏が率いるチームは、世界の主要観光地300カ所でサービスを提供する企業を体系的にマッピングし、トップダウン分析とボトムアップ分析を組み合わせたアプローチで銘柄を厳選しています。</p>
+        <div class="gaesco-badge">🏆 LSEG リッパー・ファンド・アワード・ジャパン 2026<br>『最優秀ファンド賞』受賞<span class="gaesco-badge-note">株式型 業種別 一般消費財（評価期間3年）— 2年連続受賞<br>株式型 業種別 一般消費財（評価期間5年）<br>※受賞は過去の運用実績に基づく評価であり、将来の運用成果を保証または示唆するものではありません。詳細はlipperfundawards.comをご参照ください。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTOR & HOLDINGS -->
+<section class="sec" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="part-label r">ポートフォリオ</div>
+    <h2 class="sec-h2 r">業種配分と通貨配分<em>Sector & Currency Allocation</em></h2>
+    <p class="body-text r" style="margin-top:1rem;margin-bottom:2rem;">旅行者の行動パターン（旅行準備→移動→宿泊→旅行先）に基づきポートフォリオを構築しています。ホテル・リゾート・クルーズが最大の構成比を占め、空港サービス、航空、カジノ・レジャーなどが続きます。通貨はユーロと米ドルが中心です。</p>
+
+    <div id="allocBars">
+      <div class="alloc-row r"><div class="alloc-lbl">ホテル・リゾート・クルーズ</div><div class="alloc-track"><div class="alloc-fill af-1" data-w="82%"></div></div><div class="alloc-pct">48.8%</div></div>
+      <div class="alloc-row r rd1"><div class="alloc-lbl">旅客航空輸送</div><div class="alloc-track"><div class="alloc-fill af-2" data-w="18%"></div></div><div class="alloc-pct">10.9%</div></div>
+      <div class="alloc-row r rd1"><div class="alloc-lbl">空港サービス</div><div class="alloc-track"><div class="alloc-fill af-3" data-w="15%"></div></div><div class="alloc-pct">9.0%</div></div>
+      <div class="alloc-row r rd2"><div class="alloc-lbl">その他専門小売</div><div class="alloc-track"><div class="alloc-fill af-4" data-w="15%"></div></div><div class="alloc-pct">8.7%</div></div>
+      <div class="alloc-row r rd2"><div class="alloc-lbl">カジノ・ゲーム</div><div class="alloc-track"><div class="alloc-fill af-5" data-w="7%"></div></div><div class="alloc-pct">4.3%</div></div>
+      <div class="alloc-row r rd3"><div class="alloc-lbl">その他</div><div class="alloc-track"><div class="alloc-fill af-7" data-w="31%"></div></div><div class="alloc-pct">18.3%</div></div>
+    </div>
+
+    <p class="body-text r" style="margin-top:2.5rem;margin-bottom:1rem;"><strong>通貨配分</strong></p>
+    <div>
+      <div class="alloc-row r"><div class="alloc-lbl">ユーロ</div><div class="alloc-track"><div class="alloc-fill af-1" data-w="60%"></div></div><div class="alloc-pct">35.4%</div></div>
+      <div class="alloc-row r rd1"><div class="alloc-lbl">米ドル</div><div class="alloc-track"><div class="alloc-fill af-2" data-w="57%"></div></div><div class="alloc-pct">33.7%</div></div>
+      <div class="alloc-row r rd2"><div class="alloc-lbl">スイスフラン</div><div class="alloc-track"><div class="alloc-fill af-3" data-w="15%"></div></div><div class="alloc-pct">8.6%</div></div>
+      <div class="alloc-row r rd2"><div class="alloc-lbl">香港ドル</div><div class="alloc-track"><div class="alloc-fill af-4" data-w="14%"></div></div><div class="alloc-pct">8.2%</div></div>
+      <div class="alloc-row r rd3"><div class="alloc-lbl">その他</div><div class="alloc-track"><div class="alloc-fill af-7" data-w="24%"></div></div><div class="alloc-pct">14.1%</div></div>
+    </div>
+
+    <p class="source-note r">出所：キャピタル アセットマネジメント（2025年7月31日現在）。配分比率は市場環境や運用判断により変動します。</p>
+  </div>
+</section>
+
+<!-- EXAMPLE HOLDINGS -->
+<section class="sec" style="background:var(--white);">
+  <div class="sec-inner">
+    <div class="part-label r">組入銘柄の例</div>
+    <h2 class="sec-h2 r">バリューチェーン上の代表的な投資先<em>Portfolio Highlights</em></h2>
+    <p class="body-text r" style="margin-top:1rem;margin-bottom:2rem;">当ファンドは、旅行者の行動パターンに沿って、バリューチェーンの各領域から構造的な競争優位を持つと判断される企業を厳選しています。以下は理解を深めるための例示であり、個別銘柄の推奨を目的とするものではありません。</p>
+
+    <div class="card-grid">
+      <div class="card r">
+        <div class="card-icon">🚢</div>
+        <div class="card-title">カーニバル（米国）</div>
+        <div class="card-desc">世界最大級のクルーズ運営会社。退職者層やファミリー層の長期旅行需要を取り込み、高い参入障壁と規模の経済を持つセクターのリーダー。</div>
+      </div>
+      <div class="card r rd1">
+        <div class="card-icon">🏨</div>
+        <div class="card-title">メリア・ホテル・インターナショナル（スペイン）</div>
+        <div class="card-desc">世界40カ国以上で約390カ所のホテルを展開。ラグジュアリーからミドルクラスまで幅広いブランドポートフォリオで、欧州・カリブ・アジアの観光需要を捕捉。</div>
+      </div>
+      <div class="card r rd2">
+        <div class="card-icon">🛍️</div>
+        <div class="card-title">アボルタ（スイス）</div>
+        <div class="card-desc">空港・駅・クルーズターミナル等の免税・リテール事業をグローバルに展開。旅行者の「移動と消費」の接点で、旅客数の増加がそのまま収益に結びつくビジネスモデル。</div>
+      </div>
+      <div class="card r rd3">
+        <div class="card-icon">✈️</div>
+        <div class="card-title">タイ空港公社（タイ）</div>
+        <div class="card-desc">バンコク・スワンナプーム空港等を運営。アジア太平洋のアウトバウンド回復の恩恵を直接的に受ける空港インフラの代表銘柄。</div>
+      </div>
+    </div>
+
+    <p class="source-note r">上記銘柄は当ファンドの理解を深めるために紹介したものです。個別銘柄の推奨を目的とするものではなく、当ファンドに組み入れることを保証するものではありません。出所：GVC Gaesco Gestionの資料およびBloombergのデータを基にキャピタル アセットマネジメント作成。</p>
+  </div>
+</section>
+
+<div class="photo-break" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1920&q=80');"><div class="photo-break-overlay"></div></div>
+
+<!-- SHORT-TERM WATCH -->
+<section class="sec" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="part-label r">短期の観測点</div>
+    <h2 class="sec-h2 r" style="font-size:clamp(1.2rem,2.5vw,1.7rem);">足元のマクロ環境<em>Near-term Watch Points</em></h2>
+    <p class="body-text r" style="margin-top:1rem;">長期の構造テーマとは別に、短期的な需給環境にも注意が必要です。以下は2026年時点の主な観測点です。</p>
+    <div class="watch-items r">
+      <div class="watch-item"><div class="watch-item-title">アジア太平洋の回復進捗</div><div class="watch-item-desc">中国アウトバウンドの正常化ペースが、世界全体の旅行需要に影響</div></div>
+      <div class="watch-item"><div class="watch-item-title">大型国際イベント</div><div class="watch-item-desc">FIFA W杯2026（米国等3カ国共催）、ミラノ冬季五輪など</div></div>
+      <div class="watch-item"><div class="watch-item-title">AIと旅行テクノロジー</div><div class="watch-item-desc">ダイナミックプライシングやパーソナライズ推薦の収益性への影響</div></div>
+      <div class="watch-item"><div class="watch-item-title">地政学・インフレ動向</div><div class="watch-item-desc">燃油価格、為替変動、紛争リスクが旅行需要に与える影響</div></div>
+    </div>
+    <p class="source-note r">上記は2026年3月時点の一般的な業界見通しであり、当ファンドの投資判断を示すものではありません。</p>
+  </div>
+</section>
+
+<!-- PART III — RISKS -->
+<section class="sec" style="background:var(--navy);color:white;" id="p3">
+  <div class="sec-inner">
+    <div class="part-label r" style="color:var(--gold-light);">Part III — リスクと向き合い方</div>
+    <h2 class="sec-h2 r" style="color:white;">投資のリスクを理解する<em style="color:var(--gold-light);">Understanding the Risks</em></h2>
+    <p class="body-text r" style="color:rgba(255,255,255,.6);margin-top:1rem;">旅行株は景気敏感セクターに分類されます。長期の構造成長テーマであることと、短期的に大きく変動しうることは、矛盾なく両立します。以下のリスクを理解した上で投資判断を行ってください。</p>
+    <div class="risk-grid">
+      <div class="risk-card r"><div class="risk-tag">景気循環リスク</div><div class="risk-title">景気後退局面での需要減少</div><div class="risk-desc">旅行は可処分所得に依存する消費行動であり、景気後退局面では支出が削られやすい傾向があります。2020年のパンデミック時には国際観光客数が大幅に減少しました。短期的なドローダウンへの耐性が求められます。</div></div>
+      <div class="risk-card r rd1"><div class="risk-tag">地政学・感染症・燃油</div><div class="risk-title">外的ショックへのエクスポージャー</div><div class="risk-desc">テロ、感染症の流行、紛争、原油価格の急騰は、旅行産業に即座に影響を及ぼす可能性があります。過去の実績ではショック後の回復が比較的速い傾向が見られますが、将来も同様とは限りません。</div></div>
+      <div class="risk-card r rd2"><div class="risk-tag">為替リスク</div><div class="risk-title">外貨建て資産の為替変動</div><div class="risk-desc">当ファンドは原則として為替ヘッジを行いません。米ドル、ユーロ、スイスフラン等の外貨建て資産が大半を占めるため、円高局面では基準価額が目減りするリスクがあります。一方、円安局面ではリターンが押し上げられる可能性があります。</div></div>
+      <div class="risk-card r rd3"><div class="risk-tag">バリュエーションリスク</div><div class="risk-title">期待先行のリスク</div><div class="risk-desc">旅行テーマへの注目度が高まれば、株価が業績を先取りして上昇し、割高に推移する局面が生じ得ます。長期の成長テーマであっても、エントリーのタイミングには注意が必要です。定時定額での積立投資を活用した段階的な配分も一つの選択肢です。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<section class="outro">
+  <div class="outro-inner">
+    <p class="outro-text r">旅行株は景気敏感なセクターではある。<br class="pc">しかし、長期では <strong>「人がどこで、何に、お金を使うか」</strong>の構造変化を映すテーマでもある。</p><p class="outro-text" style="margin-top:1.5rem;">15億人が国境を越えて移動する時代。<br class="pc">その数は、さらに増えていく見通しにある。</p><p class="outro-text" style="margin-top:1.5rem;"><strong>世界ツーリズム株式ファンド</strong>は、<br class="pc">この構造変化への投資機会を提供する。</p>
+    <p class="outro-sig r">Capital Asset Management — World Tourism Equity Fund</p>
+  </div>
+</section>
+
+<!-- NISA -->
+<div class="nisa-cta">
+  <div class="nisa-pill r"><div><div class="nisa-pill-main">新NISA 成長投資枠 対象</div></div></div>
+  <p class="nisa-desc r">当ファンドは新NISA制度の成長投資枠に対応しています。取扱いの有無や購入条件は販売会社により異なります。詳しくは各販売会社にお問い合わせください。</p>
+</div>
+
+<!-- FUND INFO -->
+<section class="sec" style="background:var(--cream);" id="fund">
+  <div class="sec-inner">
+    <div class="part-label r">Fund Information</div>
+    <h2 class="sec-h2 r">ファンド概要<em>Fund Details</em></h2>
+    <table class="info-tbl r">
+      <tr><th>ファンド名</th><td>世界ツーリズム株式ファンド（愛称：世界の旅）</td></tr>
+      <tr><th>運用会社</th><td>キャピタル アセットマネジメント株式会社</td></tr>
+      <tr><th>投資助言</th><td>GVC Gaesco Gestión SGIIC, S.A.（スペイン・バルセロナ）</td></tr>
+      <tr><th>設定日</th><td>2019年6月28日</td></tr>
+      <tr><th>償還日</th><td>無期限</td></tr>
+      <tr><th>決算日</th><td>年2回（6月・12月の各26日）</td></tr>
+      <tr><th>投資対象</th><td>主として世界各国・地域の取引所に上場する旅行関連企業の株式等</td></tr>
+      <tr><th>為替ヘッジ</th><td>原則として行わない</td></tr>
+      <tr><th>信託報酬</th><td>実質 年1.936%（税込）</td></tr>
+      <tr><th>購入時手数料</th><td>最大 3.3%（税込）※販売会社により異なります</td></tr>
+      <tr><th>NISA</th><td>成長投資枠 対象</td></tr>
+      <tr><th>ISINコード</th><td>JP90C000HU40</td></tr>
+    </table>
+    <p class="source-note r" style="margin-top:1.5rem;">最新の基準価額、分配金、組入銘柄等の情報は、運用会社（キャピタル アセットマネジメント）のWebサイトまたは各販売会社の月次レポートをご確認ください。上記は2026年3月時点の交付目論見書に基づく情報であり、変更される場合があります。</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Capital Asset Management Co., Ltd.</div>
+    <div class="footer-disc"><strong>免責事項：</strong>本資料は情報提供を目的として作成されたものであり、特定の金融商品の勧誘を目的とするものではありません。投資に関する最終決定は、お客様ご自身の判断と責任において行ってください。投資信託は、株式や債券等の値動きのある資産（外貨建て資産には為替変動リスクもあります）に投資しますので、基準価額は変動します。したがって、投資元本を割り込むことがあります。投資信託は預金等ではなく、元本および利回りの保証はありません。ご購入に際しては、投資信託説明書（交付目論見書）の内容をご確認の上、ご自身でご判断ください。過去の実績は将来の運用成果を保証または示唆するものではありません。本ページに記載されたデータ・見通しは情報提供を目的とするものであり、その正確性・完全性を保証するものではありません。<br><br><strong>写真について：</strong>本ページに使用されている写真はすべてイメージです。特定の企業・ブランド・サービスを示すものではなく、当ファンドの投資対象を直接表すものではありません。<br><br><strong>出所：</strong>UN Tourism World Tourism Barometer (January 2026), WTTC Economic Impact Research (2025), IMF, 国連, Airbnb, CLIA, GVC Gaesco Gestion, Bloomberg, 各社公開資料、キャピタル アセットマネジメント株式会社。写真：Unsplash (free license)。<br><br>本ページの情報は2026年3月時点のものです。</div>
+    <div class="footer-copy">© 2026 Capital Asset Management Co., Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)});
+
+// Mobile menu
+const hamBtn=document.getElementById('hamBtn'),mobileMenu=document.getElementById('mobileMenu');
+hamBtn.addEventListener('click',()=>{hamBtn.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+document.querySelectorAll('.mm-link').forEach(a=>{a.addEventListener('click',()=>{hamBtn.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow=''})});
+
+// Reveal
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+
+// Allocation bars - animate all sections
+document.querySelectorAll('.alloc-fill').forEach(b=>{
+  const ao=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.width=x.target.dataset.w;ao.unobserve(x.target)}})},{threshold:.3});
+  ao.observe(b);
+});
+
+// Smooth scroll
+document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>
