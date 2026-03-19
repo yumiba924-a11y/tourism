@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Tourism — Capital Research & Investments</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1A2744;--navy-deep:#0F1A2E;--navy-mid:#243352;--gold:#C5A572;--gold-light:#D4BA8A;--gold-pale:#E8D5B0;--gold-bright:#DFC08C;--cream:#FAF6F0;--white:#FFFFFF;--text:#1A1A1A;--text-mid:#4A4A4A;--text-light:#7A7A7A;--text-faint:#ABABAB}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:17.5px}body{font-family:'Noto Sans JP',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}.r{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}.r.v{opacity:1;transform:translateY(0)}.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+
+/* PROGRESS BAR */
+.progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:2000;width:0;transition:width .1s linear;pointer-events:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3rem;transition:all .5s cubic-bezier(.16,1,.3,1)}.nav.scrolled{background:rgba(26,39,68,.96);backdrop-filter:blur(20px);padding:.9rem 3rem;box-shadow:0 4px 30px rgba(0,0,0,.18)}.nav-brand{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,.85);text-transform:uppercase}.nav-links{display:flex;gap:2.2rem;list-style:none}.nav-links a{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}.nav-links a:hover{color:var(--gold-light)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1002;position:relative}.ham span{width:22px;height:1.5px;background:rgba(255,255,255,.8);transition:transform .3s,opacity .3s}.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.ham.open span:nth-child(2){opacity:0}.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,26,46,.97);z-index:1001;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.mobile-menu.open{display:flex}.mobile-menu a{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;letter-spacing:.08em;transition:color .3s}.mobile-menu a:hover{color:var(--gold-light)}
+
+/* COVER */
+.cover{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(15,26,46,.5) 0%,rgba(26,39,68,.65) 40%,rgba(15,26,46,.82) 100%),url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80') center/cover no-repeat;overflow:hidden}.cover-overlay{position:absolute;inset:0;background-image:radial-gradient(ellipse 800px 500px at 30% 40%,rgba(197,165,114,.06) 0%,transparent 70%),radial-gradient(ellipse 600px 400px at 70% 60%,rgba(26,39,68,.3) 0%,transparent 70%)}.cover-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:100px 100px}
+.cover-content{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:880px}.cover-cap{font-family:'Cormorant Garamond',serif;font-size:.75rem;font-weight:600;letter-spacing:.25em;color:var(--gold-light);text-transform:uppercase;margin-bottom:1.8rem;animation:fadeUp .8s .3s both}.cover-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-.01em;animation:fadeUp .8s .5s both}.cover-title span{display:block;font-family:'Noto Serif JP',serif;font-size:clamp(1rem,2vw,1.4rem);font-weight:500;color:var(--gold-pale);margin-top:.6rem;letter-spacing:.08em}.cover-sub{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.7);line-height:1.9;margin-top:2rem;max-width:560px;margin-left:auto;margin-right:auto;animation:fadeUp .8s .7s both}.cover-meta{font-family:'Cormorant Garamond',serif;font-size:.7rem;color:rgba(255,255,255,.3);letter-spacing:.2em;margin-top:2.5rem;animation:fadeUp .8s .9s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.scroll-cue{position:absolute;bottom:2.5rem;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:fadeUp 1s 1.2s both}.scroll-cue span{font-size:.6rem;color:rgba(255,255,255,.3);letter-spacing:.25em;text-transform:uppercase}.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:linePulse 2s infinite}@keyframes linePulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* DATA BAND */
+.data-band{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(26,39,68,.08)}.db-cell{padding:2.5rem 1.5rem;text-align:center;background:var(--white);border-right:1px solid rgba(26,39,68,.06)}.db-cell:last-child{border-right:none}.db-value{font-family:'Bodoni Moda',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1}.db-label{font-size:.7rem;font-weight:500;color:var(--text-light);margin-top:.5rem;letter-spacing:.03em}.db-src{font-size:.58rem;color:var(--text-faint);margin-top:.3rem}
+
+/* SECTIONS */
+.sec{padding:5.5rem 2rem}.sec-inner{max-width:860px;margin:0 auto}.sec-wide{max-width:1060px;margin:0 auto}.part-label{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:700;color:var(--gold);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.8rem}.part-label::before{content:'';width:28px;height:1.5px;background:var(--gold)}.sec-h2{font-family:'Noto Serif JP',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700;color:var(--navy);line-height:1.45;margin-bottom:.4rem}.sec-h2 em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;color:var(--gold);display:block;font-size:.85rem;margin-top:.3rem;letter-spacing:.08em}.body-text{font-size:1rem;line-height:2.05;color:#3a3a3a;max-width:720px}.source-note{font-size:.68rem;color:var(--text-faint);margin-top:1rem;line-height:1.6}
+
+/* PHOTO BREAK */
+.photo-break{position:relative;height:50vh;min-height:340px;background-size:cover;background-position:center;background-attachment:fixed}.photo-break-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,26,46,.1) 0%,rgba(15,26,46,.45) 100%)}
+
+/* STATEMENT */
+.stmt{position:relative;padding:5rem 2rem;background:var(--navy);overflow:hidden}.stmt-glow{position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 25% 50%,rgba(197,165,114,.06) 0%,transparent 70%),radial-gradient(ellipse 500px 350px at 75% 50%,rgba(36,51,82,.5) 0%,transparent 70%)}.stmt-text{position:relative;z-index:2;max-width:720px;margin:0 auto;text-align:center;font-family:'Noto Serif JP',serif;font-size:clamp(1.15rem,2.3vw,1.6rem);font-weight:500;color:var(--white);line-height:2}.stmt-text strong{color:var(--gold-bright);font-weight:600}.stmt-src{text-align:center;font-size:.7rem;color:rgba(255,255,255,.3);margin-top:1.8rem;letter-spacing:.12em;position:relative;z-index:2}
+
+/* MAGAZINE */
+.mag{display:grid;grid-template-columns:1fr 1fr;min-height:480px}.mag.flip{direction:rtl}.mag.flip>*{direction:ltr}.mag-img{background-size:cover;background-position:center;min-height:400px}.mag-body{display:flex;flex-direction:column;justify-content:center;padding:3.5rem}.mag-body.on-cream{background:var(--cream)}.mag-body.on-white{background:var(--white)}.mag-num{font-family:'Bodoni Moda',serif;font-size:3.5rem;font-weight:300;color:var(--gold-pale);line-height:1;margin-bottom:.5rem}.mag-h3{font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:600;color:var(--navy);line-height:1.5;margin-bottom:1rem}.mag-p{font-size:.95rem;line-height:2;color:#3a3a3a;max-width:680px}.mag-src{font-size:.65rem;color:var(--text-faint);margin-top:.8rem;line-height:1.5}
+.mag-summary{font-family:'Cormorant Garamond',serif;font-size:.78rem;font-weight:600;color:var(--gold);letter-spacing:.06em;margin-bottom:1rem;font-style:italic}
+
+/* VALUE CHAIN */
+.vc-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:2.5rem;border-radius:12px;overflow:hidden;border:1px solid rgba(26,39,68,.08)}.vc-step{padding:2rem 1.5rem;text-align:center;background:var(--white);border-right:1px solid rgba(26,39,68,.06);position:relative}.vc-step:last-child{border-right:none}.vc-step::after{content:'→';position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:.9rem;color:var(--gold);z-index:2}.vc-step:last-child::after{display:none}.vc-emoji{font-size:2rem;margin-bottom:.8rem}.vc-label{font-family:'Noto Serif JP',serif;font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:.3rem}.vc-sub{font-size:.72rem;color:var(--text-light);line-height:1.6}
+
+/* THEME CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}.card{padding:2rem;border-radius:12px;background:var(--white);border:1px solid rgba(26,39,68,.06);transition:border-color .3s,box-shadow .3s}.card:hover{border-color:rgba(197,165,114,.3);box-shadow:0 8px 30px rgba(26,39,68,.06)}.card-icon{font-size:1.8rem;margin-bottom:.8rem}.card-title{font-family:'Noto Serif JP',serif;font-size:.92rem;font-weight:600;color:var(--navy);margin-bottom:.5rem}.card-desc{font-size:.84rem;line-height:1.9;color:var(--text-mid)}
+
+/* RISKS */
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem}.risk-card{padding:2rem;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);transition:border-color .3s}.risk-card:hover{border-color:rgba(197,165,114,.3)}.risk-tag{font-size:.65rem;font-weight:700;color:var(--gold-light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}.risk-title{font-family:'Noto Serif JP',serif;font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.6rem}.risk-desc{font-size:.82rem;line-height:1.85;color:rgba(255,255,255,.55)}
+
+/* WATCH */
+.watch-items{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem}.watch-item{flex:1 1 200px;padding:1.2rem 1.5rem;background:var(--white);border-radius:10px;border-left:3px solid var(--gold-pale)}.watch-item-title{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:.3rem}.watch-item-desc{font-size:.75rem;color:var(--text-light);line-height:1.6}
+
+/* OUTRO */
+.outro{position:relative;padding:5rem 2rem;background:linear-gradient(180deg,rgba(15,26,46,.65) 0%,rgba(26,39,68,.8) 100%),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80') center/cover no-repeat;background-attachment:fixed}.outro-inner{position:relative;z-index:2;max-width:700px;margin:0 auto;text-align:center}.outro-text{font-family:'Noto Serif JP',serif;font-size:clamp(1rem,2vw,1.3rem);font-weight:500;color:var(--white);line-height:2.2}.outro-text strong{color:var(--gold-bright);font-weight:600}.outro-sig{font-family:'Cormorant Garamond',serif;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.15em;text-transform:uppercase;margin-top:2.5rem}
+
+/* FOOTER */
+.footer{background:var(--navy-deep);padding:3rem 2rem}.footer-inner{max-width:860px;margin:0 auto}.footer-brand{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;color:var(--gold);letter-spacing:.15em;margin-bottom:.3rem}.footer-year{font-size:.72rem;color:var(--gold-pale);letter-spacing:.2em;opacity:.5;margin-bottom:1.5rem}.footer-disc{font-size:.7rem;line-height:2;color:rgba(255,255,255,.28);border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem}.footer-copy{font-size:.65rem;color:rgba(255,255,255,.18);margin-top:1.5rem;text-align:center}
+
+/* ═══════ PC LINE BREAK ═══════ */
+.pc{display:inline}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media(max-width:768px){
+  .pc{display:none}
+  .nav-links{display:none}
+  .ham{display:flex}
+  .nav{padding:1rem 1.5rem}
+  .nav.scrolled{padding:.7rem 1.5rem}
+  html{font-size:16px}
+  .body-text{font-size:1rem;line-height:1.95;max-width:none}
+  .mag-p{font-size:.95rem;line-height:1.95;max-width:none}
+  .cover-title{text-wrap:balance;letter-spacing:-.02em}
+  .sec-h2{text-wrap:balance;line-height:1.5}
+  .mag-h3{text-wrap:balance;line-height:1.55;font-size:1.05rem}
+  .stmt-text{text-wrap:balance;font-size:1.05rem;line-height:1.9}
+  .outro-text{text-wrap:balance;font-size:1rem;line-height:2}
+  .cover-sub{font-size:.9rem;line-height:1.85;max-width:none}
+  .cover-cap{font-size:.62rem;letter-spacing:.18em}
+  .sec{padding:3.5rem 1.5rem}
+  .mag{grid-template-columns:1fr}
+  .mag-img{min-height:220px}
+  .mag-body{padding:2rem 1.5rem}
+  .mag.flip{direction:ltr}
+  .data-band{grid-template-columns:repeat(2,1fr)}
+  .db-cell{padding:1.6rem 1rem}
+  .db-value{font-size:1.6rem}
+  .db-label{font-size:.65rem}
+  .card-grid,.risk-grid{grid-template-columns:1fr}
+  .vc-flow{grid-template-columns:repeat(2,1fr)}
+  .vc-step::after{display:none}
+  .photo-break{background-attachment:scroll;height:30vh;min-height:200px}
+  .outro{background-attachment:scroll}
+  .source-note{font-size:.62rem}
+  .mag-src{font-size:.6rem}
+  .mag-summary{font-size:.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress" id="progressBar"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-brand">Capital Research & Investments</div>
+  <ul class="nav-links">
+    <li><a href="#p1">Why Tourism</a></li>
+    <li><a href="#p2">Investment Theme</a></li>
+    <li><a href="#p3">Risks</a></li>
+  </ul>
+  <div class="ham" id="hamBtn"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#p1" class="mm-link">Why Tourism</a>
+  <a href="#p2" class="mm-link">Investment Theme</a>
+  <a href="#p3" class="mm-link">Risks</a>
+</div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-overlay"></div>
+  <div class="cover-grid"></div>
+  <div class="cover-content">
+    <p class="cover-cap">Capital Research & Investments — Thematic Report</p>
+    <h1 class="cover-title">World<br class="pc"> Tourism<span>世界の旅、その次へ</span></h1>
+    <p class="cover-sub">移動の再開では終わらない。<br class="pc">体験消費の拡大が、次の観光需要をつくる。</p>
+    <p class="cover-meta">2026 &nbsp;|&nbsp; Confidential</p>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- DATA BAND -->
+<div class="data-band">
+  <div class="db-cell r"><div class="db-value">15.2億人</div><div class="db-label">国際観光客到着数（2025年）</div><div class="db-src">UN Tourism</div></div>
+  <div class="db-cell r rd1"><div class="db-value">$11.7T</div><div class="db-label">旅行・観光産業のGDP貢献（2025年推計）</div><div class="db-src">WTTC</div></div>
+  <div class="db-cell r rd2"><div class="db-value">5.8%</div><div class="db-label">ツーリズム成長率 vs GDP成長率2.7%</div><div class="db-src">WTTC 2022–2032年見通し</div></div>
+  <div class="db-cell r rd3"><div class="db-value">3.71億人</div><div class="db-label">旅行・観光産業の雇用（世界の10.9%）</div><div class="db-src">WTTC 2025年推計</div></div>
+</div>
+
+<!-- INTRO -->
+<section class="sec" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="part-label r">はじめに</div>
+    <h2 class="sec-h2 r">旅行産業は、世界GDPの<br class="pc">10分の1を占める巨大経済圏である<em>Tourism accounts for 10% of global GDP</em></h2>
+    <p class="body-text r" style="margin-top:1.5rem;">2025年、国際観光客到着数は15.2億人に達し、パンデミック前を超えて史上最高を記録した。旅行・観光産業の世界GDPへの貢献は推計11.7兆ドル（貢献割合10.3%）、雇用は3.71億人（世界の約10.9%）に上る。WTTCの見通しでは、グローバル・ツーリズム成長率は年5.8%と、世界GDP成長率の2.7%を大きく上回るペースでの成長が期待される。</p>
+    <p class="body-text r" style="margin-top:1rem;">2035年には、旅行・観光産業のGDP貢献は16.5兆ドル（11.5%）、雇用は4.62億人（+約9,060万人の新規雇用創出）に拡大する見通しである。この数字は、旅行・観光が一時的な「回復テーマ」ではなく、可処分所得の増加、体験消費の拡大、高齢化、新興国の中間層拡大という複数の構造的ドライバーに支えられた<strong>長期成長テーマ</strong>であることを示唆している。</p>
+    <p class="source-note r">出所：UN Tourism World Tourism Barometer (January 2026), WTTC Economic Impact Report (2025), IMF。グローバル・ツーリズム成長率は、旅行・観光産業により生産される粗付加価値の成長率（WTTC/Tourism Satellite Account基準）。</p>
+  </div>
+</section>
+
+<div class="photo-break" style="background-image:url('https://images.unsplash.com/photo-1529074963764-98f45c47344b?w=1920&q=80');"><div class="photo-break-overlay"></div></div>
+
+<!-- PART I -->
+<div class="mag" id="p1">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="part-label r">Part I — なぜ旅行は長期成長テーマなのか</div>
+    <div class="mag-num r">01</div>
+    <h3 class="mag-h3 r">旅は贅沢品から<br class="pc">生活インフラへ</h3>
+    <p class="mag-summary r">旅行のハードルは過去20年で構造的に低下した</p>
+    <p class="mag-p r">LCCの普及、デジタル予約プラットフォームの発達、ビザ緩和政策の進展により、国際旅行は一部の富裕層のものから、幅広い所得層がアクセスできる消費行動へと変化した。UN Tourismは2026年も3〜4％の成長を見込んでいる。</p>
+    <p class="mag-src r">出所：UN Tourism 2026 Outlook</p>
+  </div>
+</div>
+
+<div class="mag flip">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1200&q=80');"></div>
+  <div class="mag-body on-white">
+    <div class="mag-num r">02</div>
+    <h3 class="mag-h3 r">モノ消費からコト消費へ — <br class="pc">体験経済の構造的な潮流</h3>
+    <p class="mag-summary r">体験消費が支出の優先順位を変えている</p>
+    <p class="mag-p r">先進国では消費の重心が「所有」から「体験」へ移行している。ミレニアル世代やZ世代を中心に、旅行体験への支出を優先する層が拡大。SNSの普及は「体験の共有」そのものを消費動機に変え、新たな旅行需要を生み出す循環を形成している。</p>
+  </div>
+</div>
+
+<div class="mag">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="mag-num r">03</div>
+    <h3 class="mag-h3 r">新興国の中間層拡大が<br class="pc">次の旅行者を生む</h3>
+    <p class="mag-summary r">60億人超の中所得層が旅行の裾野を広げる</p>
+    <p class="mag-p r">国連のデータによれば、中所得国に住む人々は60億人を超える見込みである。Airbnb社の調査では、米・英・中のミレニアル世代の半数以上が「最も重要な支出」に旅行を挙げている。モノよりコトを重視する傾向は世代を超えて広がりつつある。</p>
+    <p class="mag-src r">出所：国連、Airbnb（2016年調査）、WTTC</p>
+  </div>
+</div>
+
+<div class="mag flip">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?w=1200&q=80');"></div>
+  <div class="mag-body on-white">
+    <div class="mag-num r">04</div>
+    <h3 class="mag-h3 r">高齢化と長寿化が<br class="pc">余暇需要を広げる</h3>
+    <p class="mag-summary r">「人生100年時代」は旅行産業の構造的ドライバー</p>
+    <p class="mag-p r">退職後もアクティブに旅行を楽しむシニア層が日本や欧州を中心に増加している。健康寿命の延伸と年金資産の蓄積が旅行消費の裾野を広げ、クルーズ産業やラグジュアリー旅行の堅調な成長に表れている。</p>
+  </div>
+</div>
+
+<div class="mag">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="mag-num r">05</div>
+    <h3 class="mag-h3 r">アジアのアウトバウンドが<br class="pc">世界の観光地図を変えつつある</h3>
+    <p class="mag-summary r">34億人の旅行者プールが本格始動</p>
+    <p class="mag-p r">アジア太平洋は2025年以降キャッチアップが加速している。中国・インド・ASEANを合わせた約34億人の旅行者プールが動き出す影響は大きく、UN Tourismはこの回復が世界の旅行企業の収益を押し上げるドライバーになり得ると指摘している。</p>
+    <p class="mag-src r">出所：UN Tourism World Tourism Barometer</p>
+  </div>
+</div>
+
+<!-- STATEMENT -->
+<section class="stmt">
+  <div class="stmt-glow"></div>
+  <p class="stmt-text r">旅行は<strong>「回復」</strong>の先にある。<br class="pc">可処分所得、体験消費、高齢化、新興国中間層の拡大——<br class="pc">複数の構造要因に支えられた<br class="pc"><strong>長期成長テーマ</strong>として注目される。</p>
+  <p class="stmt-src r">— CRI Thematic Research</p>
+</section>
+
+<div class="photo-break" style="background-image:url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1920&q=80');"><div class="photo-break-overlay"></div></div>
+
+<!-- PART II — 投資テーマ -->
+<section class="sec" style="background:var(--cream);" id="p2">
+  <div class="sec-inner">
+    <div class="part-label r">Part II — 投資テーマとしてのツーリズム</div>
+    <h2 class="sec-h2 r">旅のバリューチェーン全体に<br class="pc">投資機会が広がる<em>Capturing the Full Tourism Value Chain</em></h2>
+    <p class="body-text r" style="margin-top:1.5rem;">ツーリズムは単一業種ではない。旅行者がチケットを予約してから帰国するまでの「旅のバリューチェーン」は、交通、宿泊、テクノロジー、現地消費といった多様な領域で構成される。それぞれの領域で上場企業が活動しており、構造的な成長テーマとして投資機会の幅が広いことがこのテーマの特徴である。</p>
+  </div>
+  <div class="sec-wide">
+    <div class="vc-flow r" style="margin-top:2.5rem;">
+      <div class="vc-step"><div class="vc-emoji">✈️</div><div class="vc-label">移動</div><div class="vc-sub">航空会社・鉄道<br>クルーズ・レンタカー</div></div>
+      <div class="vc-step"><div class="vc-emoji">🏨</div><div class="vc-label">宿泊</div><div class="vc-sub">ホテルチェーン<br>リゾート・民泊</div></div>
+      <div class="vc-step"><div class="vc-emoji">📱</div><div class="vc-label">予約・決済</div><div class="vc-sub">OTA・旅行テック<br>決済・保険</div></div>
+      <div class="vc-step"><div class="vc-emoji">🎭</div><div class="vc-label">現地消費</div><div class="vc-sub">レジャー・飲食<br>免税・ラグジュアリー</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="mag">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1200&q=80');"></div>
+  <div class="mag-body on-white">
+    <div class="mag-num r">06</div>
+    <h3 class="mag-h3 r">地域別の成長ドライバー</h3>
+    <p class="mag-p r"><strong>欧州</strong> — 世界最大の観光地域。2025年に7.93億人の国際観光客を受入れ。文化観光やガストロノミーが需要を支える。</p><p class="mag-p" style="margin-top:.8rem;"><strong>北米</strong> — Booking Holdings、Airbnb等の旅行テクノロジー企業の本拠地。プラットフォーム企業がグローバルに収益を拡大している。</p><p class="mag-p" style="margin-top:.8rem;"><strong>アジア太平洋</strong> — 中間層の拡大とアウトバウンド正常化に伴い、中長期で高い成長が期待される地域である。</p><p class="mag-p" style="margin-top:.8rem;"><strong>中東</strong> — サウジアラビアのVision 2030に代表される観光立国戦略のもと、大型のインフラ投資が進んでいる。</p>
+    <p class="mag-src r">出所：UN Tourism, 各種報道</p>
+  </div>
+</div>
+
+<div class="mag flip">
+  <div class="mag-img" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80');"></div>
+  <div class="mag-body on-cream">
+    <div class="mag-num r">07</div>
+    <h3 class="mag-h3 r">同じ「旅行関連」でも<br class="pc">ビジネスモデルの質は大きく異なる</h3>
+    <p class="mag-p r">旅行関連株はグローバルに多数上場しているが、事業モデルの質と収益構造は銘柄ごとに大きく異なる。レガシーな航空会社と、ネットワーク効果で利益率が拡大するOTAプラットフォームでは、長期の投資価値が根本的に違う。テーマに投資する際は、バリューチェーンのどの領域に、どのようなビジネスモデルで参画しているかを精査する視点が重要となる。</p>
+  </div>
+</div>
+
+<!-- 注目すべきサブテーマ -->
+<section class="sec" style="background:var(--white);">
+  <div class="sec-inner">
+    <div class="part-label r">注目のサブテーマ</div>
+    <h2 class="sec-h2 r">旅行産業の中で注目すべき<br class="pc">4つの構造変化<em>Structural Shifts to Watch</em></h2>
+    <p class="body-text r" style="margin-top:1rem;margin-bottom:2rem;">テーマ内部でも、テクノロジーや消費者行動の変化が新たな投資機会を生み出している。以下は、中長期で構造的な追い風が期待される4つのサブテーマである。</p>
+
+    <div class="card-grid">
+      <div class="card r">
+        <div class="card-icon">🚢</div>
+        <div class="card-title">クルーズ産業の構造的拡大</div>
+        <div class="card-desc">高齢化・長寿化の恩恵を最も直接的に受けるセグメント。CLIA（国際クルーズ協会）によれば、クルーズ乗客数は過去最高を更新し続けており、新造船の発注も活発。高い参入障壁と顧客のリピート率が収益の安定性を支えている。</div>
+      </div>
+      <div class="card r rd1">
+        <div class="card-icon">📱</div>
+        <div class="card-title">旅行テック・OTAプラットフォーム</div>
+        <div class="card-desc">Booking Holdings、Airbnb等のOTAプラットフォームはネットワーク効果により利益率が拡大する構造を持つ。AIによるダイナミックプライシングやパーソナライズ推薦が収益性をさらに高める可能性がある。</div>
+      </div>
+      <div class="card r rd2">
+        <div class="card-icon">🛍️</div>
+        <div class="card-title">空港・免税リテールのインフラ価値</div>
+        <div class="card-desc">空港・駅・クルーズターミナル等における免税・リテール事業は、旅客数の増加がそのまま収益に結びつくビジネスモデル。旅行者の「移動と消費」の接点に位置するインフラとしての価値に注目。</div>
+      </div>
+      <div class="card r rd3">
+        <div class="card-icon">🌏</div>
+        <div class="card-title">アジア太平洋の空港・インフラ</div>
+        <div class="card-desc">アジア中間層のアウトバウンド正常化に伴い、空港インフラへの恩恵が中長期で期待される。東南アジア主要空港の拡張計画や、日本のインバウンド需要の構造的拡大もこのテーマの一部である。</div>
+      </div>
+    </div>
+
+    <p class="source-note r">上記は一般的な業界動向に基づくテーマ分析であり、個別銘柄の推奨を目的とするものではありません。出所：UN Tourism, WTTC, CLIA, Bloomberg, 各社公開資料。</p>
+  </div>
+</section>
+
+<div class="photo-break" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1920&q=80');"><div class="photo-break-overlay"></div></div>
+
+<!-- SHORT-TERM WATCH -->
+<section class="sec" style="background:var(--cream);">
+  <div class="sec-inner">
+    <div class="part-label r">短期の観測点</div>
+    <h2 class="sec-h2 r" style="font-size:clamp(1.2rem,2.5vw,1.7rem);">足元のマクロ環境<em>Near-term Watch Points</em></h2>
+    <p class="body-text r" style="margin-top:1rem;">長期の構造テーマとは別に、短期的な需給環境にも注意が必要である。以下は2026年時点の主な観測点。</p>
+    <div class="watch-items r">
+      <div class="watch-item"><div class="watch-item-title">アジア太平洋の回復進捗</div><div class="watch-item-desc">中国アウトバウンドの正常化ペースが、世界全体の旅行需要に影響</div></div>
+      <div class="watch-item"><div class="watch-item-title">大型国際イベント</div><div class="watch-item-desc">FIFA W杯2026（米国等3カ国共催）、ミラノ冬季五輪など</div></div>
+      <div class="watch-item"><div class="watch-item-title">AIと旅行テクノロジー</div><div class="watch-item-desc">ダイナミックプライシングやパーソナライズ推薦の収益性への影響</div></div>
+      <div class="watch-item"><div class="watch-item-title">地政学・インフレ動向</div><div class="watch-item-desc">燃油価格、為替変動、紛争リスクが旅行需要に与える影響</div></div>
+    </div>
+    <p class="source-note r">上記は2026年3月時点の一般的な業界見通しであり、特定の投資判断を示すものではありません。</p>
+  </div>
+</section>
+
+<!-- PART III — RISKS -->
+<section class="sec" style="background:var(--navy);color:white;" id="p3">
+  <div class="sec-inner">
+    <div class="part-label r" style="color:var(--gold-light);">Part III — リスクと向き合い方</div>
+    <h2 class="sec-h2 r" style="color:white;">ツーリズム投資テーマのリスクを理解する<em style="color:var(--gold-light);">Understanding the Risks</em></h2>
+    <p class="body-text r" style="color:rgba(255,255,255,.6);margin-top:1rem;max-width:none;">旅行株は景気敏感セクターに分類される。長期の構造成長テーマであることと、短期的に大きく変動しうることは、矛盾なく両立する。テーマ投資を検討する際は、以下のリスク要因を理解しておくことが重要である。</p>
+    <div class="risk-grid">
+      <div class="risk-card r"><div class="risk-tag">景気循環リスク</div><div class="risk-title">景気後退局面での需要減少</div><div class="risk-desc">旅行は可処分所得に依存する消費行動であり、景気後退局面では支出が削られやすい傾向がある。2020年のパンデミック時には国際観光客数が大幅に減少した。短期的なドローダウンへの耐性が求められる。</div></div>
+      <div class="risk-card r rd1"><div class="risk-tag">地政学・感染症・燃油</div><div class="risk-title">外的ショックへのエクスポージャー</div><div class="risk-desc">テロ、感染症の流行、紛争、原油価格の急騰は、旅行産業に即座に影響を及ぼす可能性がある。過去の実績ではショック後の回復が比較的速い傾向が見られるが、将来も同様とは限らない。</div></div>
+      <div class="risk-card r rd2"><div class="risk-tag">為替リスク</div><div class="risk-title">グローバル投資に伴う為替変動</div><div class="risk-desc">ツーリズム関連企業はグローバルに分散しており、投資対象通貨は米ドル、ユーロ、スイスフランなど多岐にわたる。円高局面ではリターンが目減りするリスクがあり、通貨エクスポージャーの管理が重要となる。</div></div>
+      <div class="risk-card r rd3"><div class="risk-tag">バリュエーションリスク</div><div class="risk-title">期待先行のリスク</div><div class="risk-desc">旅行テーマへの注目度が高まれば、株価が業績を先取りして上昇し、割高に推移する局面が生じ得る。長期の成長テーマであっても、エントリーのタイミングには注意が必要である。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<section class="outro">
+  <div class="outro-inner">
+    <p class="outro-text r">旅行株は景気敏感なセクターではある。<br class="pc">しかし、長期では <strong>「人がどこで、何に、お金を使うか」</strong>の<br class="pc">構造変化を映すテーマでもある。</p>
+    <p class="outro-text r" style="margin-top:1.5rem;">15億人が国境を越えて移動する時代。<br class="pc">その数は、さらに増えていく見通しにある。</p>
+    <p class="outro-text r" style="margin-top:1.5rem;">ツーリズムは、<br class="pc"><strong>注目すべき長期投資テーマ</strong>のひとつである。</p>
+    <p class="outro-sig r">Capital Research & Investments — Thematic Report</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Capital Research & Investments</div>
+    <div class="footer-year">2026 &nbsp;|&nbsp; Confidential</div>
+    <div class="footer-disc"><strong>免責事項：</strong>本資料は情報提供を目的として作成されたものであり、特定の金融商品の勧誘を目的とするものではありません。投資に関する最終決定は、お客様ご自身の判断と責任において行ってください。株式等の値動きのある資産（外貨建て資産には為替変動リスクもあります）への投資は、元本を割り込むことがあります。本資料に記載されたデータ・見通しは情報提供を目的とするものであり、その正確性・完全性を保証するものではありません。過去の実績は将来の成果を保証または示唆するものではありません。<br><br><strong>写真について：</strong>本ページに使用されている写真はすべてイメージです。特定の企業・ブランド・サービスを示すものではありません。<br><br><strong>出所：</strong>UN Tourism World Tourism Barometer (January 2026), WTTC Economic Impact Research (2025), IMF, 国連, Airbnb, CLIA, Bloomberg, 各社公開資料。写真：Unsplash (free license)。<br><br>本資料の情報は2026年3月時点のものです。</div>
+    <div class="footer-copy">© 2026 Capital Research & Investments Co., Ltd. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+const progressBar=document.getElementById('progressBar');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  progressBar.style.width=(scrollY/h*100)+'%';
+});
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>60)});
+
+// Mobile menu
+const hamBtn=document.getElementById('hamBtn'),mobileMenu=document.getElementById('mobileMenu');
+hamBtn.addEventListener('click',()=>{hamBtn.classList.toggle('open');mobileMenu.classList.toggle('open');document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':''});
+document.querySelectorAll('.mm-link').forEach(a=>{a.addEventListener('click',()=>{hamBtn.classList.remove('open');mobileMenu.classList.remove('open');document.body.style.overflow=''})});
+
+// Reveal
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>
